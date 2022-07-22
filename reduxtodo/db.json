@@ -1,10 +1,22 @@
 {
   "todo": [
     {
-      "tittle": "Learn Redux",
-      "description": "",
-      "status": false,
+      "tittle": "code",
+      "description": "code()",
+      "status": "true",
       "id": 1
+    },
+    {
+      "tittle": "reyyyyyyyyyyy",
+      "description": "reeeeeeeeee",
+      "status": "false",
+      "id": 2
+    },
+    {
+      "tittle": "rttttttttttt",
+      "description": "tttttete",
+      "status": "false",
+      "id": 3
     }
   ]
 }

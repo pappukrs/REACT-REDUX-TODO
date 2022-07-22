@@ -8,10 +8,7 @@ import {GET_TODO_ERROR, GET_TODO_LOADING, GET_TODO_SUCCESS,ADD_TODO_LOADING,ADD_
 const initialState ={
     loading:false,
     error:false,
-    
-    id:1,
-    todo:[
-      ]
+    todo:[]
 }
 const Reducer = (state=initialState,action) => {
    switch (action.type) {
@@ -20,7 +17,6 @@ const Reducer = (state=initialState,action) => {
             ...state,
             loading: true,
              error:false
-
         }
 
         case GET_TODO_SUCCESS:
@@ -28,7 +24,7 @@ const Reducer = (state=initialState,action) => {
                 ...state,
                 loading: false,
                 error: false,
-                todo:[...state.todo, ...action.payload]
+                todo:action.payload
     
             }
 
@@ -56,7 +52,7 @@ const Reducer = (state=initialState,action) => {
                 loading: false,
                 error: false,
 
-                todo:[...state.todo, ...action.payload]
+                todo:[...state.todo,...action.payload]
                
     
             }
@@ -115,7 +111,7 @@ const Reducer = (state=initialState,action) => {
         
                         todo:state.todo.map((el)=>
                         
-                                el.id===action.payload?!el.status:el.status
+                                el.id===action.payload?{...el,status:!el.status}:{...el}
 
                                 
         

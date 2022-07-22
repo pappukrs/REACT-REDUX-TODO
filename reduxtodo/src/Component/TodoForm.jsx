@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
-import { addTodoSuccess , addTodoLoading, addTodoError} from '../redux/Action';
+import { addTodoSuccess , addTodoLoading, addTodoError, getTodoLoading, getTodoSuccess, getTodoError} from '../redux/Action';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const TodoForm = () => {
@@ -17,17 +17,39 @@ const TodoForm = () => {
 
   let [status, setStatus] = React.useState("");
 
+
+  const fetchList = () =>{
+    dispatch(getTodoLoading)
+  axios({
+      method: 'GET',
+      url: 'http://localhost:8080/todo'
+  }).then(response =>{
+      console.log(response,"res");
+      dispatch(getTodoSuccess(response.data));
+     
+  
+  
+  })
+  .catch(error =>dispatch(getTodoError()))
+}
+
   const handleAdd=(body) => {
-    addTodoLoading()
+    dispatch(addTodoLoading());
    axios({
     method:"post",
     url:"http://localhost:8080/todo",
     data:body,
-   }).then((response) => {dispatch(addTodoSuccess(response.data));})
-   .catch((err)=>dispatch(addTodoError()));
+   }).then((response) => {dispatch(addTodoSuccess(response.data)); })
+   .catch((err)=>{dispatch(addTodoError());
+     
+   
+  
+  });
     Navigate('/todolist');
   }
   
+  // fetchList();
+  // dispatch(addTodoSuccess(response.data))
    const statusoption = [
     {
       value: 'true',
