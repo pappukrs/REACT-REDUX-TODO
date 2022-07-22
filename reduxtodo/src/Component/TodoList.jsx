@@ -12,10 +12,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
+import {useNavigate } from 'react-router-dom';
 const TodoList = () => {
+    const Navigate=useNavigate();
 
     const {loading,error,todo}=useSelector((state) => state);
-    console.log(todo,"todo");
+    // console.log(todo,"todo");
     const dispatch=useDispatch()
 
 
@@ -25,7 +27,7 @@ const TodoList = () => {
             method: 'GET',
             url: 'http://localhost:8080/todo'
         }).then(response =>{
-            console.log(response,"res");
+            // console.log(response,"res");
             dispatch(getTodoSuccess(response.data));
            
         
@@ -47,7 +49,9 @@ const TodoList = () => {
             method:'delete',
             url: `http://localhost:8080/todo/${id}`,
             
-        }).then((response)=>{console.log(response.data,"resRemove");
+         }).then((response)=>{;
+
+            // console.log(response.data,"resRemove")
         dispatch( removeTodoSuccess(id));
         fetchList();
     
@@ -63,7 +67,8 @@ const TodoList = () => {
             method:'patch',
             url: `http://localhost:8080/todo/${id}`,
             data:{status:!status}
-        }).then((response)=>{console.log(response.data,"restoggle");
+        }).then((response)=>{
+            // console.log(response.data,"restoggle");
         dispatch( toggleTodoSuccess(id));
         fetchList();
     
@@ -72,6 +77,11 @@ const TodoList = () => {
    
     ;
 
+    }
+
+
+    const handleVisit=(id)=>{
+        Navigate(`/todo/:${id}`)
     }
 
 
@@ -123,7 +133,7 @@ const TodoList = () => {
               <TableCell align="right">{row.status?"COMPLETED":"NOT-COMPLETED"}</TableCell>
              
               <TableCell align="right">{<Button onClick={()=>handleToggle(row.id,row.status)} variant="outlined">Toggle</Button>}</TableCell>
-              <TableCell align="right">{<Button variant="outlined">More det...</Button>}</TableCell>
+              <TableCell align="right">{<Button onClick={()=>handleVisit(row.id)} variant="outlined">More det...</Button>}</TableCell>
               <TableCell align="right">{<Button onClick={()=>handleRemove(row.id)} variant="outlined">REMOVE</Button>}</TableCell>
             
             </TableRow>

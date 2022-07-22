@@ -24,7 +24,7 @@ const TodoForm = () => {
       method: 'GET',
       url: 'http://localhost:8080/todo'
   }).then(response =>{
-      console.log(response,"res");
+      // console.log(response,"res");
       dispatch(getTodoSuccess(response.data));
      
   

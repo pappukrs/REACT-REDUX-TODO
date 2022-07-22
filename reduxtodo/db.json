@@ -1,22 +1,22 @@
 {
   "todo": [
     {
-      "tittle": "code",
-      "description": "code()",
-      "status": "true",
-      "id": 1
+      "tittle": "Learn Redux",
+      "description": "Today i will learn redux after that i will solve some question related to redux .After that i will  also do revision",
+      "status": false,
+      "id": 6
     },
     {
-      "tittle": "reyyyyyyyyyyy",
-      "description": "reeeeeeeeee",
-      "status": "false",
-      "id": 2
+      "tittle": "Learn Advance Css",
+      "description": "I will learn advance \ncss by watching somme youtube tutorial",
+      "status": false,
+      "id": 7
     },
     {
-      "tittle": "rttttttttttt",
-      "description": "tttttete",
-      "status": "false",
-      "id": 3
+      "tittle": "Learn Figmma",
+      "description": "I will learn figma from youtube tutorial and \ndocumentation",
+      "status": false,
+      "id": 8
     }
   ]
 }
