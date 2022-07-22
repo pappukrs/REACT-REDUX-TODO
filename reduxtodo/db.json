@@ -17,6 +17,12 @@
       "description": "I will learn figma from youtube tutorial and \ndocumentation",
       "status": false,
       "id": 8
+    },
+    {
+      "tittle": "Create Food delivery app",
+      "description": "Today i will create a food delivery app usin reactjs.\nIt contains both admin as well as user panel",
+      "status": "false",
+      "id": 9
     }
   ]
 }
